@@ -4,15 +4,13 @@ class BSBF_inter:
     """
     BSBF_inter: Code for "Identification and estimation of interaction effects in nonparametric additive regression"
 
-    This class implements a kernel-based backfitting procedure for additive regression models
+    This class implements a kernel-based smooth backfitting procedure for additive regression models
     with interaction effects. It simultaneously estimates main effects and pairwise interactions
     while performing variable selection through regularization.
 
     Core methodology:
     - Kernel-based estimation of 1D, 2D, 3D, and 4D marginal and joint densities
-    - Alternating projection and centering for identifying additive and interaction components
-    - Regularization (via L1-type penalties) to enforce sparsity in both main and interaction functions
-    - Lambda selection based on BIC or log-likelihood criteria
+    - Simple projection and centering for identifying additive and interaction components
 
     Parameters:
     - path: string, directory path to store intermediate KDE outputs
@@ -117,7 +115,7 @@ class BSBF_inter:
     def save_kde(self):
         """
         Efficient computation and storage of 3D and 4D kernel density estimates (KDEs)
-        needed for structured projection in high-dimensional regression.
+        needed for simple projection in high-dimensional regression.
         Results are saved as .npy files in subfolders '3d-kde/' and '4d-kde/'.
         """
         os.makedirs(self.path, exist_ok=True)

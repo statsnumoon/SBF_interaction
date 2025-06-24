@@ -176,37 +176,6 @@ def h_RT(X, d, ngrid, h_scott_only=False):
     return h
 
 """
-- panelty parameter lambda
-"""
-
-def lambda_band(X, h, blength):
-    """
-    - X: (n, d) array of input data (n: number of samples, d: number of covariates)
-    - h: list or array of coordinate-wise bandwidths (length d)
-    - blength: integer, number of lambda values to generate (grid length)
-    
-    - return: array of length `blength` representing a lambda-grid for regularization
-    """
-    h = np.asarray(h)
-    n = X.shape[0]
-    d = X.shape[1]
-    
-    h = np.max(h)                      
-    const = n * h**2                    
-    ca4 = np.log(np.max(d, n))        
-    const1 = h**(3/2)                  
-    upper = const1 + np.sqrt(ca4 / const)  
-
-    if upper < 1:
-        lda_band = np.linspace(0.01, upper, blength)
-    elif upper / 2 > 1:
-        lda_band = np.linspace(0.01, upper / 2, blength)
-    else:
-        lda_band = np.linspace(0.01, upper / 4, blength)
-    
-    return lda_band
-
-"""
 - interpolation code
 """
 

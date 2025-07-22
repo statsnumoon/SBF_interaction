@@ -12,13 +12,13 @@ predict: Predicts responses based on the fitted model.
 
 import SBF_interaction
 
-path = './home/'
-ngrid = 101  # A small ngrid value is recommended for efficient storage
+path = './home/' \
+ngrid = 101  # A small ngrid value is recommended for efficient storage 
 
-h = h_RT(X, X.shape[1], ngrid)
-model = BSBF_inter(X, Y, h, ngrid=ngrid)
-model.save_kde()  # Not necessary when X.shape[1] == 2
-model.fit()
+h = h_RT(X, X.shape[1], ngrid) \
+model = BSBF_inter(X, Y, h, ngrid=ngrid) \
+model.save_kde()  # Not necessary when X.shape[1] == 2 \
+model.fit() 
 
 ## License
 This project is licensed under the MIT License.

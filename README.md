@@ -10,6 +10,7 @@ predict: Predicts responses based on the fitted model.
 
 ## Example
 
+```python
 import SBF_interaction
 
 path = './home/' \
@@ -19,6 +20,7 @@ h = h_RT(X, X.shape[1], ngrid) \
 model = BSBF_inter(X, Y, h, ngrid=ngrid) \
 model.save_kde()  # Not necessary when X.shape[1] == 2 \
 model.fit() 
+```
 
 ## License
 This project is licensed under the MIT License.
